@@ -23,14 +23,10 @@ Name | Begründung
 Folgende Komponenten müssen lokal installiert sein:
 
 - [JDK 19](https://www.oracle.com/java/technologies/downloads/#java19) v19.0.2
-- [JavaFX](https://gluonhq.com/products/javafx/) v19.0.2.1
 
-Um das Projekt lokal auszuführen, folgendes in der Commandline / Bash eingeben:
+Um das Projekt lokal auszuführen, release herunterladen oder selbst compilen und anschließend in der Eingebeaufforderung ausführen:
 
 ```console
-$ git clone <linktorepository> udg-probeaufgabe
-$ cd udg-probeaufgabe
-$ npm install
-$ npm run start
+java -jar CSViewJ-v1.0.jar
 ```
 ---
