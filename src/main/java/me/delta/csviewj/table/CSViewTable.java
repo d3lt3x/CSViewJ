@@ -106,7 +106,6 @@ public class CSViewTable {
         column.setCellFactory(cellFactory);
         column.setSortable(false);
 
-
         //Sets new value of edited cell.
         column.setOnEditCommit(event -> {
             String[] record = this.table.getItems().get(event.getTablePosition().getRow());
@@ -206,7 +205,11 @@ public class CSViewTable {
 
         createColumn(String.valueOf(this.records.get(0).length + 1));
 
-        this.records = this.records.stream().map(array -> Arrays.copyOf(array, array.length + 1)).toList();
+        this.records = this.records.stream().map(array -> {
+            String[] updatedRecords = Arrays.copyOf(array, array.length + 1);
+            updatedRecords[updatedRecords.length - 1] = "";
+            return updatedRecords;
+        }).toList();
 
         this.table.setItems(FXCollections.observableArrayList(this.records));
         this.table.refresh();
@@ -289,8 +292,10 @@ public class CSViewTable {
             dataList.add(data);
         }
 
-        PieChart.Data otherData = new PieChart.Data("Sonstige" + " - " + String.format("%.2f%%", 100 - totalPercentage), (100 - totalPercentage) / 100 * column.size());
-        dataList.add(otherData);
+        if (totalPercentage != 100) {
+            PieChart.Data otherData = new PieChart.Data("Sonstige" + " - " + String.format("%.2f%%", 100 - totalPercentage), (100 - totalPercentage) / 100 * column.size());
+            dataList.add(otherData);
+        }
 
         this.pieChart.setData(dataList);
         this.pieChart.setTitle(this.records.get(0)[columnIndex]);
