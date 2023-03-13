@@ -24,7 +24,7 @@ Folgende Komponenten müssen lokal installiert sein:
 
 - [JDK 19](https://www.oracle.com/java/technologies/downloads/#java19) v19.0.2
 
-Um das Projekt lokal auszuführen, release herunterladen oder selbst compilen und anschließend in der Eingebeaufforderung ausführen:
+Um das Projekt lokal auszuführen, das release herunterladen oder selbst compilen und anschließend mit doppel klick oder in der Eingebeaufforderung ausführen:
 
 ```console
 java -jar CSViewJ-v1.0.jar
